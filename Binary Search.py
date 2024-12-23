@@ -34,6 +34,14 @@ tests.append({
     "output": -1
 })
 
+tests.append({
+    "input": {
+        "cards": [11, 9, 8, 6, 6, 6, 4, 3, 1, 1],
+        "query": 6
+    },
+    "output": 3
+})
+
 def locate_card_brute_force(cards, query):
     position = 0
 
