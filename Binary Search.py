@@ -71,4 +71,34 @@ def locate_card_binary_search(cards, query):
     return -1
 
 
-evaluate_test_cases(locate_card_binary_search, tests)
+def locate_repeating_card(cards, query, mid):
+    
+    mid_number = cards[mid]
+    if(query == mid_number):
+        if (mid-1 >= 0 and cards[mid-1] == query):
+            return "left"
+        else:
+            return "found"
+    elif(query > mid_number):
+        return "left"
+    else:
+        return "right"
+    
+def locate_card(cards, query):
+    lo = 0
+    hi = len(cards) -1
+
+    while (lo<=hi):
+        mid = (hi + lo) //2
+        result = locate_repeating_card(cards, query, mid)
+
+        if (result == "found"):
+            return mid
+        elif(result == "left"):
+            hi = mid-1
+        elif(result == "right"):
+            lo = mid + 1
+    return -1
+        
+
+evaluate_test_cases(locate_card, tests)
