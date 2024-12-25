@@ -42,6 +42,15 @@ tests.append({
     "output": 3
 })
 
+large_test = []
+large_test.append({
+    "input": {
+        "cards": list(range(10000000, 0, -1)),
+        "query": 2
+    },
+    "output": 9999998
+})
+
 def locate_card_brute_force(cards, query):
     position = 0
 
@@ -101,4 +110,4 @@ def locate_card(cards, query):
     return -1
         
 
-evaluate_test_cases(locate_card, tests)
+evaluate_test_cases(locate_card_brute_force, large_test)
